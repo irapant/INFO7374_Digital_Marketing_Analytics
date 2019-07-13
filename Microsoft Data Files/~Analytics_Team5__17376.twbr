@@ -1,0 +1,3471 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0621.1547                               -->
+<workbook source-build='2019.2.1 (20192.19.0621.1547)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Customer.csv+ (Multiple Connections)' inline='true' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Customer' name='textscan.0j37j7o0vt0arr16349wl15ue1a5'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='Customer.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Product' name='textscan.102pvqt0gr72md1aw1h2k1j2fnfx'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='Product.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='ProductCategory' name='textscan.03cngba14k8ior12yvysc1ojzxuw'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='ProductCategory.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='ProductModel' name='textscan.1vzvluu0uksspr12th5491dgih1h'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='ProductModel.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Promotions (1)' name='textscan.1stezsg0wvk3q01a5h689009d1jy'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='Promotions (1).csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='SalesOrderDetail' name='textscan.0opp8uf17trfae17upqcj0n5t4tv'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='SalesOrderDetail.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='SalesOrderHeader' name='textscan.0jju5kp1xo9svp112v49s1ra1bs4'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='SalesOrderHeader.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='SalesPerson' name='textscan.09maeiw1fffpio17rk92c0p9xcij'>
+            <connection class='textscan' directory='C:/Users/Ashu Kapil/Documents/NORTHEASTERN/Summer 19/Digital Marketing Analytics/Assignment 1/Team 5/Data' filename='SalesPerson.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[ProductModel.csv].[ProductCategoryID]' />
+              <expression op='[ProductCategory.csv].[ProductCategory_ID___]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Product.csv].[ProductModelID]' />
+                <expression op='[ProductModel.csv].[ProductModelID]' />
+              </expression>
+            </clause>
+            <relation join='inner' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[SalesOrderDetail.csv].[SpecialOfferID]' />
+                  <expression op='[Promotions (1).csv].[SpecialOfferID]' />
+                </expression>
+              </clause>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[SalesOrderDetail.csv].[ProductID]' />
+                    <expression op='[Product.csv].[ProductID]' />
+                  </expression>
+                </clause>
+                <relation join='inner' type='join'>
+                  <clause type='join'>
+                    <expression op='='>
+                      <expression op='[SalesOrderHeader.csv].[SalesPersonID]' />
+                      <expression op='[SalesPerson.csv].[SalesPersonID]' />
+                    </expression>
+                  </clause>
+                  <relation join='inner' type='join'>
+                    <clause type='join'>
+                      <expression op='='>
+                        <expression op='[SalesOrderHeader.csv].[SalesOrderID]' />
+                        <expression op='[SalesOrderDetail.csv].[SalesOrderID]' />
+                      </expression>
+                    </clause>
+                    <relation join='left' type='join'>
+                      <clause type='join'>
+                        <expression op='='>
+                          <expression op='[Customer.csv].[CustomerID]' />
+                          <expression op='[SalesOrderHeader.csv].[CustomerID]' />
+                        </expression>
+                      </clause>
+                      <relation connection='textscan.0j37j7o0vt0arr16349wl15ue1a5' name='Customer.csv' table='[Customer#csv]' type='table'>
+                        <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                          <column datatype='integer' name='CustomerID' ordinal='0' />
+                          <column datatype='string' name='PersonType' ordinal='1' />
+                          <column datatype='string' name='Title' ordinal='2' />
+                          <column datatype='string' name='FirstName' ordinal='3' />
+                          <column datatype='string' name='MiddleName' ordinal='4' />
+                          <column datatype='string' name='LastName' ordinal='5' />
+                          <column datatype='integer' name='EmailPromotion' ordinal='6' />
+                          <column datatype='integer' name='PersonID' ordinal='7' />
+                        </columns>
+                      </relation>
+                      <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='SalesOrderHeader.csv' table='[SalesOrderHeader#csv]' type='table'>
+                        <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                          <column datatype='integer' name='SalesOrderID' ordinal='0' />
+                          <column datatype='integer' name='OnlineOrderFlag' ordinal='1' />
+                          <column datatype='string' name='SalesOrderNumber' ordinal='2' />
+                          <column datatype='string' name='PurchaseOrderNumber' ordinal='3' />
+                          <column datatype='integer' name='CustomerID' ordinal='4' />
+                          <column datatype='integer' name='SalesPersonID' ordinal='5' />
+                          <column datatype='integer' name='TerritoryID' ordinal='6' />
+                          <column datatype='integer' name='BillToAddressID' ordinal='7' />
+                          <column datatype='real' name='SubTotal' ordinal='8' />
+                          <column datatype='real' name='TaxAmt' ordinal='9' />
+                          <column datatype='real' name='Freight' ordinal='10' />
+                        </columns>
+                      </relation>
+                    </relation>
+                    <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='SalesOrderDetail.csv' table='[SalesOrderDetail#csv]' type='table'>
+                      <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                        <column datatype='integer' name='SalesOrderID' ordinal='0' />
+                        <column datatype='integer' name='SalesOrderDetailID' ordinal='1' />
+                        <column datatype='string' name='CarrierTrackingNumber' ordinal='2' />
+                        <column datatype='integer' name='OrderQty' ordinal='3' />
+                        <column datatype='integer' name='ProductID' ordinal='4' />
+                        <column datatype='integer' name='SpecialOfferID' ordinal='5' />
+                        <column datatype='real' name='UnitPrice' ordinal='6' />
+                        <column datatype='date' name='Date' ordinal='7' />
+                        <column datatype='string' name='IsHoliday' ordinal='8' />
+                      </columns>
+                    </relation>
+                  </relation>
+                  <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='SalesPerson.csv' table='[SalesPerson#csv]' type='table'>
+                    <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                      <column datatype='integer' name='SalesPersonID' ordinal='0' />
+                      <column datatype='integer' name='BusinessEntityID' ordinal='1' />
+                      <column datatype='integer' name='SalesQuota' ordinal='2' />
+                      <column datatype='integer' name='Bonus' ordinal='3' />
+                      <column datatype='real' name='CommissionPct' ordinal='4' />
+                      <column datatype='real' name='SalesYTD' ordinal='5' />
+                      <column datatype='real' name='SalesLastYear' ordinal='6' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='Product.csv' table='[Product#csv]' type='table'>
+                  <columns character-set='windows-1252' header='yes' locale='en_US' separator=','>
+                    <column datatype='integer' name='ProductID' ordinal='0' />
+                    <column datatype='string' name='Name' ordinal='1' />
+                    <column datatype='string' name='ProductNumber' ordinal='2' />
+                    <column datatype='integer' name='MakeFlag' ordinal='3' />
+                    <column datatype='integer' name='FinishedGoodsFlag' ordinal='4' />
+                    <column datatype='integer' name='SafetyStockLevel' ordinal='5' />
+                    <column datatype='integer' name='ReorderPoint' ordinal='6' />
+                    <column datatype='integer' name='ProductModelID' ordinal='7' />
+                  </columns>
+                </relation>
+              </relation>
+              <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='Promotions (1).csv' table='[Promotions (1)#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='SpecialOfferID' ordinal='0' />
+                  <column datatype='string' name='Description' ordinal='1' />
+                  <column datatype='real' name='DiscountPct' ordinal='2' />
+                  <column datatype='string' name='Type' ordinal='3' />
+                  <column datatype='string' name='Category' ordinal='4' />
+                  <column datatype='integer' name='MinQty' ordinal='5' />
+                  <column datatype='integer' name='MaxQty' ordinal='6' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='ProductModel.csv' table='[ProductModel#csv]' type='table'>
+              <columns character-set='windows-1252' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='ProductModelID' ordinal='0' />
+                <column datatype='string' name='Name' ordinal='1' />
+                <column datatype='integer' name='ProductCategoryID' ordinal='2' />
+                <column datatype='string' name='Rowguid' ordinal='3' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.09maeiw1fffpio17rk92c0p9xcij' name='ProductCategory.csv' table='[ProductCategory#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ProductCategory_ID___' ordinal='0' />
+              <column datatype='string' name='ProductName' ordinal='1' />
+              <column datatype='string' name='IdentificationID' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[BillToAddressID]' value='[SalesOrderHeader.csv].[BillToAddressID]' />
+          <map key='[Bonus]' value='[SalesPerson.csv].[Bonus]' />
+          <map key='[BusinessEntityID]' value='[SalesPerson.csv].[BusinessEntityID]' />
+          <map key='[CarrierTrackingNumber]' value='[SalesOrderDetail.csv].[CarrierTrackingNumber]' />
+          <map key='[Category]' value='[Promotions (1).csv].[Category]' />
+          <map key='[CommissionPct]' value='[SalesPerson.csv].[CommissionPct]' />
+          <map key='[CustomerID (SalesOrderHeader.csv)]' value='[SalesOrderHeader.csv].[CustomerID]' />
+          <map key='[CustomerID]' value='[Customer.csv].[CustomerID]' />
+          <map key='[Date]' value='[SalesOrderDetail.csv].[Date]' />
+          <map key='[Description]' value='[Promotions (1).csv].[Description]' />
+          <map key='[DiscountPct]' value='[Promotions (1).csv].[DiscountPct]' />
+          <map key='[EmailPromotion]' value='[Customer.csv].[EmailPromotion]' />
+          <map key='[FinishedGoodsFlag]' value='[Product.csv].[FinishedGoodsFlag]' />
+          <map key='[FirstName]' value='[Customer.csv].[FirstName]' />
+          <map key='[Freight]' value='[SalesOrderHeader.csv].[Freight]' />
+          <map key='[IdentificationID]' value='[ProductCategory.csv].[IdentificationID]' />
+          <map key='[IsHoliday]' value='[SalesOrderDetail.csv].[IsHoliday]' />
+          <map key='[LastName]' value='[Customer.csv].[LastName]' />
+          <map key='[MakeFlag]' value='[Product.csv].[MakeFlag]' />
+          <map key='[MaxQty]' value='[Promotions (1).csv].[MaxQty]' />
+          <map key='[MiddleName]' value='[Customer.csv].[MiddleName]' />
+          <map key='[MinQty]' value='[Promotions (1).csv].[MinQty]' />
+          <map key='[Name (ProductModel.csv)]' value='[ProductModel.csv].[Name]' />
+          <map key='[Name]' value='[Product.csv].[Name]' />
+          <map key='[OnlineOrderFlag]' value='[SalesOrderHeader.csv].[OnlineOrderFlag]' />
+          <map key='[OrderQty]' value='[SalesOrderDetail.csv].[OrderQty]' />
+          <map key='[PersonID]' value='[Customer.csv].[PersonID]' />
+          <map key='[PersonType]' value='[Customer.csv].[PersonType]' />
+          <map key='[ProductCategoryID]' value='[ProductModel.csv].[ProductCategoryID]' />
+          <map key='[ProductCategory_ID___]' value='[ProductCategory.csv].[ProductCategory_ID___]' />
+          <map key='[ProductID (Product.csv)]' value='[Product.csv].[ProductID]' />
+          <map key='[ProductID]' value='[SalesOrderDetail.csv].[ProductID]' />
+          <map key='[ProductModelID (ProductModel.csv)]' value='[ProductModel.csv].[ProductModelID]' />
+          <map key='[ProductModelID]' value='[Product.csv].[ProductModelID]' />
+          <map key='[ProductName]' value='[ProductCategory.csv].[ProductName]' />
+          <map key='[ProductNumber]' value='[Product.csv].[ProductNumber]' />
+          <map key='[PurchaseOrderNumber]' value='[SalesOrderHeader.csv].[PurchaseOrderNumber]' />
+          <map key='[ReorderPoint]' value='[Product.csv].[ReorderPoint]' />
+          <map key='[Rowguid]' value='[ProductModel.csv].[Rowguid]' />
+          <map key='[SafetyStockLevel]' value='[Product.csv].[SafetyStockLevel]' />
+          <map key='[SalesLastYear]' value='[SalesPerson.csv].[SalesLastYear]' />
+          <map key='[SalesOrderDetailID]' value='[SalesOrderDetail.csv].[SalesOrderDetailID]' />
+          <map key='[SalesOrderID (SalesOrderDetail.csv)]' value='[SalesOrderDetail.csv].[SalesOrderID]' />
+          <map key='[SalesOrderID]' value='[SalesOrderHeader.csv].[SalesOrderID]' />
+          <map key='[SalesOrderNumber]' value='[SalesOrderHeader.csv].[SalesOrderNumber]' />
+          <map key='[SalesPersonID (SalesPerson.csv)]' value='[SalesPerson.csv].[SalesPersonID]' />
+          <map key='[SalesPersonID]' value='[SalesOrderHeader.csv].[SalesPersonID]' />
+          <map key='[SalesQuota]' value='[SalesPerson.csv].[SalesQuota]' />
+          <map key='[SalesYTD]' value='[SalesPerson.csv].[SalesYTD]' />
+          <map key='[SpecialOfferID (Promotions (1).csv)]' value='[Promotions (1).csv].[SpecialOfferID]' />
+          <map key='[SpecialOfferID]' value='[SalesOrderDetail.csv].[SpecialOfferID]' />
+          <map key='[SubTotal]' value='[SalesOrderHeader.csv].[SubTotal]' />
+          <map key='[TaxAmt]' value='[SalesOrderHeader.csv].[TaxAmt]' />
+          <map key='[TerritoryID]' value='[SalesOrderHeader.csv].[TerritoryID]' />
+          <map key='[Title]' value='[Customer.csv].[Title]' />
+          <map key='[Type]' value='[Promotions (1).csv].[Type]' />
+          <map key='[UnitPrice]' value='[SalesOrderDetail.csv].[UnitPrice]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CustomerID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CustomerID]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>CustomerID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PersonType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PersonType]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>PersonType</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Title]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>Title</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FirstName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[FirstName]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>FirstName</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MiddleName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MiddleName]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>MiddleName</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LastName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LastName]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>LastName</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmailPromotion</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmailPromotion]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>EmailPromotion</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PersonID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PersonID]</local-name>
+            <parent-name>[Customer.csv]</parent-name>
+            <remote-alias>PersonID</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesOrderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesOrderID]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>SalesOrderID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OnlineOrderFlag</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OnlineOrderFlag]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>OnlineOrderFlag</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesOrderNumber</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SalesOrderNumber]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>SalesOrderNumber</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PurchaseOrderNumber</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PurchaseOrderNumber]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>PurchaseOrderNumber</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CustomerID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CustomerID (SalesOrderHeader.csv)]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>CustomerID</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesPersonID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesPersonID]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>SalesPersonID</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TerritoryID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TerritoryID]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>TerritoryID</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BillToAddressID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[BillToAddressID]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>BillToAddressID</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SubTotal</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SubTotal]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>SubTotal</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TaxAmt</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TaxAmt]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>TaxAmt</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Freight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Freight]</local-name>
+            <parent-name>[SalesOrderHeader.csv]</parent-name>
+            <remote-alias>Freight</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesOrderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesOrderID (SalesOrderDetail.csv)]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>SalesOrderID</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesOrderDetailID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesOrderDetailID]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>SalesOrderDetailID</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CarrierTrackingNumber</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CarrierTrackingNumber]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>CarrierTrackingNumber</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OrderQty</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OrderQty]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>OrderQty</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductID]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>ProductID</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SpecialOfferID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SpecialOfferID]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>SpecialOfferID</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UnitPrice</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[UnitPrice]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>UnitPrice</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IsHoliday</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[IsHoliday]</local-name>
+            <parent-name>[SalesOrderDetail.csv]</parent-name>
+            <remote-alias>IsHoliday</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesPersonID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesPersonID (SalesPerson.csv)]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>SalesPersonID</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BusinessEntityID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[BusinessEntityID]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>BusinessEntityID</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesQuota</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SalesQuota]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>SalesQuota</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Bonus</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Bonus]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>Bonus</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CommissionPct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[CommissionPct]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>CommissionPct</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesYTD</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SalesYTD]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>SalesYTD</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SalesLastYear</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SalesLastYear]</local-name>
+            <parent-name>[SalesPerson.csv]</parent-name>
+            <remote-alias>SalesLastYear</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;windows-1252&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductID (Product.csv)]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>ProductID</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductNumber</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ProductNumber]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>ProductNumber</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MakeFlag</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MakeFlag]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>MakeFlag</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FinishedGoodsFlag</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[FinishedGoodsFlag]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>FinishedGoodsFlag</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SafetyStockLevel</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SafetyStockLevel]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>SafetyStockLevel</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReorderPoint</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ReorderPoint]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>ReorderPoint</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductModelID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductModelID]</local-name>
+            <parent-name>[Product.csv]</parent-name>
+            <remote-alias>ProductModelID</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SpecialOfferID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SpecialOfferID (Promotions (1).csv)]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>SpecialOfferID</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DiscountPct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DiscountPct]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>DiscountPct</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Type]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>Type</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Category]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>Category</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MinQty</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MinQty]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>MinQty</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MaxQty</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MaxQty]</local-name>
+            <parent-name>[Promotions (1).csv]</parent-name>
+            <remote-alias>MaxQty</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ProductModel.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;ibm-5348_P100-1997&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductModelID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductModelID (ProductModel.csv)]</local-name>
+            <parent-name>[ProductModel.csv]</parent-name>
+            <remote-alias>ProductModelID</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name (ProductModel.csv)]</local-name>
+            <parent-name>[ProductModel.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductCategoryID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductCategoryID]</local-name>
+            <parent-name>[ProductModel.csv]</parent-name>
+            <remote-alias>ProductCategoryID</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rowguid</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Rowguid]</local-name>
+            <parent-name>[ProductModel.csv]</parent-name>
+            <remote-alias>Rowguid</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ProductCategory.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductCategory_ID___</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProductCategory_ID___]</local-name>
+            <parent-name>[ProductCategory.csv]</parent-name>
+            <remote-alias>ProductCategory_ID___</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProductName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ProductName]</local-name>
+            <parent-name>[ProductCategory.csv]</parent-name>
+            <remote-alias>ProductName</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IdentificationID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[IdentificationID]</local-name>
+            <parent-name>[ProductCategory.csv]</parent-name>
+            <remote-alias>IdentificationID</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Bill To Address ID' datatype='integer' name='[BillToAddressID]' role='dimension' type='ordinal' />
+      <column caption='Business Entity ID' datatype='integer' name='[BusinessEntityID]' role='dimension' type='ordinal' />
+      <column caption='Sales' datatype='real' name='[Calculation_1222727309796016128]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[UnitPrice]*[OrderQty]' />
+      </column>
+      <column caption='Revenue' datatype='real' name='[Calculation_1222727309850722305]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[OrderQty]*[UnitPrice]' />
+      </column>
+      <column caption='Top 3' datatype='boolean' name='[Calculation_1222727309857378306]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='RANK(SUM([Calculation_1222727309796016128]))&lt;=3'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Carrier Tracking Number' datatype='string' name='[CarrierTrackingNumber]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+      <column caption='Commission Pct' datatype='real' name='[CommissionPct]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[CustomerID (SalesOrderHeader.csv)]' role='dimension' type='ordinal' />
+      <column caption='Customer ID' datatype='integer' name='[CustomerID]' role='dimension' type='ordinal' />
+      <column caption='Discount Pct' datatype='real' name='[DiscountPct]' role='measure' type='quantitative' />
+      <column caption='Email Promotion' datatype='integer' name='[EmailPromotion]' role='measure' type='quantitative' />
+      <column caption='Finished Goods Flag' datatype='integer' name='[FinishedGoodsFlag]' role='measure' type='quantitative' />
+      <column caption='First Name' datatype='string' name='[FirstName]' role='dimension' type='nominal' />
+      <column caption='Identification ID' datatype='string' name='[IdentificationID]' role='dimension' type='nominal' />
+      <column caption='Is Holiday' datatype='string' name='[IsHoliday]' role='dimension' type='nominal' />
+      <column caption='Last Name' datatype='string' name='[LastName]' role='dimension' type='nominal' />
+      <column caption='Make Flag' datatype='integer' name='[MakeFlag]' role='measure' type='quantitative' />
+      <column caption='Max Qty' datatype='integer' name='[MaxQty]' role='measure' type='quantitative' />
+      <column caption='Middle Name' datatype='string' name='[MiddleName]' role='dimension' type='nominal' />
+      <column caption='Min Qty' datatype='integer' name='[MinQty]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Name]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Online Order Flag' datatype='integer' name='[OnlineOrderFlag]' role='measure' type='quantitative' />
+      <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+      <column caption='Person ID' datatype='integer' name='[PersonID]' role='dimension' type='ordinal' />
+      <column caption='Person Type' datatype='string' name='[PersonType]' role='dimension' type='nominal' />
+      <column caption='Product Category ID' datatype='integer' name='[ProductCategoryID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[ProductCategory_ID___]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[ProductID (Product.csv)]' role='dimension' type='ordinal' />
+      <column caption='Product ID' datatype='integer' name='[ProductID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[ProductModelID (ProductModel.csv)]' role='dimension' type='ordinal' />
+      <column caption='Product Model ID' datatype='integer' name='[ProductModelID]' role='dimension' type='ordinal' />
+      <column caption='Product Name' datatype='string' name='[ProductName]' role='dimension' type='nominal' />
+      <column caption='Product Number' datatype='string' name='[ProductNumber]' role='dimension' type='nominal' />
+      <column caption='Purchase Order Number' datatype='string' name='[PurchaseOrderNumber]' role='dimension' type='nominal' />
+      <column caption='Reorder Point' datatype='integer' name='[ReorderPoint]' role='measure' type='quantitative' />
+      <column caption='Safety Stock Level' datatype='integer' name='[SafetyStockLevel]' role='measure' type='quantitative' />
+      <column caption='Sales Last Year' datatype='real' name='[SalesLastYear]' role='dimension' type='quantitative' />
+      <column caption='Sales Order Detail ID' datatype='integer' name='[SalesOrderDetailID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[SalesOrderID (SalesOrderDetail.csv)]' role='dimension' type='ordinal' />
+      <column caption='Sales Order ID' datatype='integer' name='[SalesOrderID]' role='dimension' type='ordinal' />
+      <column caption='Sales Order Number' datatype='string' name='[SalesOrderNumber]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[SalesPersonID (SalesPerson.csv)]' role='dimension' type='ordinal' />
+      <column caption='Sales Person ID' datatype='integer' name='[SalesPersonID]' role='dimension' type='ordinal' />
+      <column caption='Sales Quota' datatype='integer' name='[SalesQuota]' role='measure' type='quantitative' />
+      <column caption='Sales YTD' datatype='real' name='[SalesYTD]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[SpecialOfferID (Promotions (1).csv)]' role='dimension' type='ordinal' />
+      <column caption='Special Offer ID' datatype='integer' name='[SpecialOfferID]' role='dimension' type='ordinal' />
+      <column caption='Sub Total' datatype='real' hidden='true' name='[SubTotal]' role='measure' type='quantitative' />
+      <column caption='Tax Amt' datatype='real' name='[TaxAmt]' role='measure' type='quantitative' />
+      <column caption='Territory ID' datatype='integer' name='[TerritoryID]' role='dimension' type='ordinal' />
+      <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+      <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Name]' derivation='None' name='[none:Name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[SalesPersonID (SalesPerson.csv)]' derivation='None' name='[none:SalesPersonID (SalesPerson.csv):ok]' pivot='key' type='ordinal' />
+      <column-instance column='[SpecialOfferID (Promotions (1).csv)]' derivation='None' name='[none:SpecialOfferID (Promotions (1).csv):ok]' pivot='key' type='ordinal' />
+      <column-instance column='[FinishedGoodsFlag]' derivation='Sum' name='[sum:FinishedGoodsFlag:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[MakeFlag]' derivation='Sum' name='[sum:MakeFlag:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[ReorderPoint]' derivation='Sum' name='[sum:ReorderPoint:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[SafetyStockLevel]' derivation='Sum' name='[sum:SafetyStockLevel:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1222727309857378306]' derivation='User' name='[usr:Calculation_1222727309857378306:nk:2]' pivot='key' type='nominal'>
+        <table-calc ordering-type='Field'>
+          <order field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' />
+          <order field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]' />
+        </table-calc>
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.355556' measure-ordering='alphabetic' measure-percentage='0.644444' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:SalesPersonID (SalesPerson.csv):ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>274</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>278</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>277</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>282</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>280</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>276</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>279</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>275</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>281</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:SpecialOfferID (Promotions (1).csv):ok]' palette='summer_10_0' type='palette'>
+            <map to='#00a2b3'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#00a2b3'>
+              <bucket>13</bucket>
+            </map>
+            <map to='#8fb202'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#8fb202'>
+              <bucket>9</bucket>
+            </map>
+            <map to='#97cfd0'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#97cfd0'>
+              <bucket>14</bucket>
+            </map>
+            <map to='#b9ca5d'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#b9ca5d'>
+              <bucket>10</bucket>
+            </map>
+            <map to='#cf3e53'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#cf3e53'>
+              <bucket>11</bucket>
+            </map>
+            <map to='#f1788d'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#f1788d'>
+              <bucket>12</bucket>
+            </map>
+            <map to='#f3a546'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#f3a546'>
+              <bucket>15</bucket>
+            </map>
+            <map to='#f7c480'>
+              <bucket>8</bucket>
+            </map>
+            <map to='#f7c480'>
+              <bucket>16</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Category:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;No Discount&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Reseller&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Customer&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Name:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Forms &quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 269&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 340&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 390&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 435 XL&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 485&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 535&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lumia 900 XL&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Microsoft Phone&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;PC Gaming&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Skype 7.12&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Skype 8.17&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Skype V3.4&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Skype V4.15&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Stream&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Surface Studio&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Windows 10.1&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX GO V27&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX GO V47&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX GO V67&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX GO V7&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX GO V87&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX PRO V26&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;XBOX PRO V6&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Access&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 237&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 317&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 370&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 420&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 465&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 515&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lumia 590 XL&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Microsoft Dynamics AX&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Office for Android&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Skype 7.4&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Skype 8.9&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Skype V2.1&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Skype V4.7&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Skype V6.2&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Surface Accessories&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Window 7.2&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Xbox 360&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX GO V19&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX GO V39&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX GO V59&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX GO V79&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX GO V99&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX PRO V18&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;XBOX Series V8&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cortana&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 253&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 330&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 380&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 430&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 475&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 525&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lumia 825&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Microsoft Exchange Server&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;OneNote&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Skype 7.8&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Skype 8.13&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Skype V2.5&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Skype V4.11&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Skype V6.6&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Surface GO&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Windows 8.4&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX GO V23&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX GO V3&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX GO V43&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX GO V63&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX GO V83&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX PRO V2&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;XBOX PRO V22&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Groove Music V1.3&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 285&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 350&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 400&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 445&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 495&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 541&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lumia 950 Dual SIM.&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Microsoft Teams&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Privacy&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Skype 8.1&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Skype for Business&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Skype V3.8&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Skype V5.4&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Surface 3&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Sway Pro V3.0&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Windows Insider Program&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX GO V11&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX GO V31&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX GO V51&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX GO V71&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX GO V91&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX PRO V10&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;XBOX PRO V30&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Groove Music&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 273&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 341&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 393&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 437&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 489&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 537&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lumia 930&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Microsoft SharePoint Server&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Planner &quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Skype 7.13&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Skype 8.18&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Skype V3.5&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Skype V5.1&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Surface&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Sway&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Windows 10.2&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX GO V28&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX GO V48&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX GO V68&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX GO V8&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX GO V88&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX PRO V27&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XBOX PRO V7&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Delve&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 257&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 333&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 381&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 430 Dual SIM&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 477&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 529&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lumia 825 XL&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Microsoft Intune&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Other Microsoft Dynamics Business Solutions&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Skype 7.9&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Skype 8.14&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Skype V3.1&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Skype V4.12&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Skype V6.7&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Surface Hub&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Windows 8.5&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX GO V24&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX GO V4&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX GO V44&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX GO V64&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX GO V84&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX PRO V23&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;XBOX PRO V3&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Kaizala &quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 309&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 365&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 415&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 460&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 510&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lumia 570&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Microsoft Azure&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;MSN Explorer (Premium/Dial-up)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Skype 7.2&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Skype 8.7&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Skype V1.4&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Skype V4.5&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Skype V5.10&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Surface 9&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Whiteboard&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Word&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX GO V17&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX GO V37&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX GO V57&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX GO V77&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX GO V97&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX PRO V16&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;XBOX Series V6&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Azure Kinect DK&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 241&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 321&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 373&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 421&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 469&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 517&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lumia 640 XL&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Microsoft Dynamics CRM&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Office for home&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Skype 7.5&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Skype 8.10&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Skype V2.2&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Skype V4.8&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Skype V6.3&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Surface Book&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Windows 7&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Xbox Games&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX GO V100&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX GO V20&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX GO V40&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX GO V60&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX GO V80&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX PRO V19&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;XBOX Series V9&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;HoloLens&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 301&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 360&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 410&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 455&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 505&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lumia 560&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Microsoft accessories&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;MS Project&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Skype&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Skype 8.5&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Skype V1.2&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Skype V4.3&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Skype V5.8&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Surface 7&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Visio&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Windows Server&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX GO V15&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX GO V35&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX GO V55&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX GO V75&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX GO V95&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX PRO V14&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;XBOX Series V4&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Device service and repair&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 261&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 335&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 385&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 433&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 480&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 530&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lumia 830&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Microsoft Lifecycle Policy&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Outlook&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Skype 7.10&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Skype 8.15&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Skype V3.2&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Skype V4.13&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Skype V6.8&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Surface Laptop&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Windows 10&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX GO V25&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX GO V45&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX GO V5&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX GO V65&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX GO V85&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX PRO V24&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;XBOX PRO V4&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Groove Music V1.4&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 289&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 353&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 401&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 449&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 497&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 545&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lumia 950 XL Dual SIM.&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Microsoft Teams &quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Publisher&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Skype 8.2&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Skype for Business Online&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Skype V3.9&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Skype V5.5&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Surface 4&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Sway Pro V4.0&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Windows Mixed Reality&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX GO V12&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX GO V32&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX GO V52&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX GO V72&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX GO V92&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX PRO V11&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;XBOX Series V1&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Groove Music V1.5&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 293&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 355&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 405&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 450&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 500&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 549&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lumia 950 XL.&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Mobile devices&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Security&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Skype 8.3&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Skype for Business Server&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Skype V4.1&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Skype V5.6&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Surface 5&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;System Center&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Windows RT 8.1&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX GO V13&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX GO V33&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX GO V53&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX GO V73&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX GO V93&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX PRO V12&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;XBOX Series V2&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Internet Explorer&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 305&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 361&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 413&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 457&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 509&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Lumia 565&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Microsoft account&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;MSN&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Skype 7.1&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Skype 8.6&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Skype V1.3&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Skype V4.4&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Skype V5.9&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Surface 8&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Visual Studio&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Windows Update&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX GO V16&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX GO V36&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX GO V56&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX GO V76&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX GO V96&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX PRO V15&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;XBOX Series V5&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 233&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 313&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 369&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 417&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 461&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 513&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lumia 590&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Microsoft Band&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Office 365 for business&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Skype 7.3&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Skype 8.8&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Skype V1.5&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Skype V4.6&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Skype V6.1&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Surface 10&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Window 7.1&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Xbox&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX GO V18&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX GO V38&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX GO V58&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX GO V78&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX GO V98&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX PRO V17&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;XBOX Series V7&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Groove Music V1.1&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 277&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 345&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 395&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 440&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 490&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 540&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lumia 935 XL&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Microsoft SQL Server&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Power BI&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Skype 7.14&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Skype 8.19&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Skype V3.6&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Skype V5.2&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Surface 1&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Sway Pro V1.1&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Windows accessibility&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX GO V29&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX GO V49&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX GO V69&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX GO V89&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX GO V9&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX PRO V28&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XBOX PRO V8&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Excel&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 265&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 337&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 389&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 435&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 481&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 533&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lumia 900&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Microsoft Partner Center Support&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Outlook 2016 for Mac&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Skype 7.11&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Skype 8.16&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Skype V3.3&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Skype V4.14&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Skype V6.9&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Surface Pro&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Windows 10 Mobile&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX GO V26&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX GO V46&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX GO V6&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX GO V66&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX GO V86&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX PRO V25&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;XBOX PRO V5&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Bing&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 245&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 325&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 375&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 425&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 470&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 520&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lumia 730&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Microsoft Dynamics GP&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Office for iPhone and iPad&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Skype 7.6&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Skype 8.11&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Skype V2.3&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Skype V4.9&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Skype V6.4&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Surface for business&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Windows 8&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX GO V1&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX GO V21&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX GO V41&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX GO V61&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX GO V81&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Xbox One&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX PRO V20&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XBOX Series V10&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Hardware development&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 297&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 357&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 409&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 453&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 501&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lumia 555&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Microsoft .NET Framework&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Movies &amp; TV&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;SharePoint&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Skype 8.4&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Skype V1.1&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Skype V4.2&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Skype V5.7&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Surface 6&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;To Do&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Windows SDK and app development&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX GO V14&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX GO V34&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX GO V54&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX GO V74&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX GO V94&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX PRO V13&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;XBOX Series V3&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Groove Music V1.2&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 281&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 349&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 397&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 441&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 493&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 540 Dual SIM.&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lumia 950&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Microsoft Store&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;PowerPoint&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Skype 7.15&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Skype 8.20&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Skype V3.7&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Skype V5.3&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Surface 2&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sway Pro V2.0&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Windows for IT administrators&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX GO V10&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX GO V30&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX GO V50&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX GO V70&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX GO V90&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX PRO V29&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;XBOX PRO V9&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Bing Ads&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 249&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 329&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 377&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 429&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 473&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 521&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lumia 730 XL&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Microsoft Edge&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;OneDrive&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Skype 7.7&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Skype 8.12&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Skype V2.4&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Skype V4.10&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Skype V6.5&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Surface for Business&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Windows 8.3&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX GO V2&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX GO V22&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX GO V42&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX GO V62&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX GO V82&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX PRO V1&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XBOX PRO V21&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Yammer&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:FinishedGoodsFlag:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:MakeFlag:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:SafetyStockLevel:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:ReorderPoint:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:Calculation_1222727309857378306:nk:2]' type='palette'>
+            <map to='#e15759'>
+              <bucket>true</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Product Performance'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Sales' datatype='real' name='[Calculation_1222727309796016128]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UnitPrice]*[OrderQty]' />
+            </column>
+            <column caption='Top 3' datatype='boolean' name='[Calculation_1222727309857378306]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='RANK(SUM([Calculation_1222727309796016128]))&lt;=3'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='string' name='[Name]' role='dimension' type='nominal' />
+            <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[SpecialOfferID (Promotions (1).csv)]' role='dimension' type='ordinal' />
+            <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+            <column-instance column='[Name]' derivation='None' name='[none:Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SpecialOfferID (Promotions (1).csv)]' derivation='None' name='[none:SpecialOfferID (Promotions (1).csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1222727309796016128]' derivation='Sum' name='[sum:Calculation_1222727309796016128:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1222727309857378306]' derivation='User' name='[usr:Calculation_1222727309857378306:nk:2]' pivot='key' type='nominal'>
+              <table-calc ordering-type='Field'>
+                <order field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' />
+                <order field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]' />
+              </table-calc>
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]'>
+            <groupfilter function='level-members' level='[none:SpecialOfferID (Promotions (1).csv):ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <natural-sort column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' direction='DESC' />
+          <filter class='categorical' column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]'>
+            <groupfilter function='member' level='[usr:Calculation_1222727309857378306:nk:2]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]</column>
+            <column>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]' value='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok] / [federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk])</rows>
+        <cols>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]</cols>
+      </table>
+      <simple-id uuid='{498A919E-F93F-4B08-B312-0B758FCE1C1C}' />
+    </worksheet>
+    <worksheet name='Sales Person Commission'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Business Entity ID' datatype='integer' name='[BusinessEntityID]' role='dimension' type='ordinal' />
+            <column caption='Commission Pct' datatype='real' name='[CommissionPct]' role='measure' type='quantitative' />
+            <column-instance column='[CommissionPct]' derivation='Avg' name='[avg:CommissionPct:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[BusinessEntityID]' derivation='None' name='[none:BusinessEntityID:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[avg:CommissionPct:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[avg:CommissionPct:qk]' palette='orange_gold_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[avg:CommissionPct:qk]' />
+              <text column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[avg:CommissionPct:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{44FEA703-65FE-4917-9C1B-355AF4A48DB8}' />
+    </worksheet>
+    <worksheet name='Sales by Customer Category'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Business Entity ID' datatype='integer' name='[BusinessEntityID]' role='dimension' type='ordinal' />
+            <column caption='Sales' datatype='real' name='[Calculation_1222727309796016128]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UnitPrice]*[OrderQty]' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+            <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+            <column-instance column='[BusinessEntityID]' derivation='None' name='[none:BusinessEntityID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1222727309796016128]' derivation='Sum' name='[sum:Calculation_1222727309796016128:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]'>
+            <groupfilter function='member' level='[none:BusinessEntityID:ok]' member='274' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Category:nk]' />
+              <text column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]</rows>
+        <cols>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Category:nk]</cols>
+      </table>
+      <simple-id uuid='{20DB327C-2798-41B6-99E4-C1495380EB74}' />
+    </worksheet>
+    <worksheet name='Sales by Month'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Sales by Month</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Revenue' datatype='real' name='[Calculation_1222727309850722305]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[OrderQty]*[UnitPrice]' />
+            </column>
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[ProductCategory_ID___]' role='dimension' type='ordinal' />
+            <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+            <column-instance column='[Date]' derivation='Month' name='[mn:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[ProductCategory_ID___]' derivation='None' name='[none:ProductCategory_ID___:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1222727309850722305]' derivation='Sum' name='[sum:Calculation_1222727309850722305:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309850722305:qk]' value='n#,##0,,.00M;-#,##0,,.00M' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309850722305:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:ProductCategory_ID___:ok]' />
+              <text column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309850722305:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309850722305:qk]</rows>
+        <cols>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[mn:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{929CC735-81EC-4030-BE11-F1250963A736}' />
+    </worksheet>
+    <worksheet name='Sales vs Customers'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Sales' datatype='real' name='[Calculation_1222727309796016128]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UnitPrice]*[OrderQty]' />
+            </column>
+            <column caption='Customer ID' datatype='integer' name='[CustomerID]' role='dimension' type='ordinal' />
+            <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+            <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+            <column-instance column='[CustomerID]' derivation='None' name='[none:CustomerID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1222727309796016128]' derivation='Sum' name='[sum:Calculation_1222727309796016128:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:CustomerID:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:CustomerID:ok]' />
+              <text column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='0.41679558157920837' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]</rows>
+        <cols>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:CustomerID:ok]</cols>
+      </table>
+      <simple-id uuid='{48C3DC45-9113-4526-8BA9-F23948F81672}' />
+    </worksheet>
+    <worksheet name='Top Product Sales wise'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+          </datasources>
+          <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+            <column caption='Sales' datatype='real' name='[Calculation_1222727309796016128]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UnitPrice]*[OrderQty]' />
+            </column>
+            <column datatype='string' name='[Name]' role='dimension' type='nominal' />
+            <column caption='Order Qty' datatype='integer' name='[OrderQty]' role='measure' type='quantitative' />
+            <column caption='Product Name' datatype='string' name='[ProductName]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[SalesPersonID (SalesPerson.csv)]' role='dimension' type='ordinal' />
+            <column caption='Unit Price' datatype='real' name='[UnitPrice]' role='measure' type='quantitative' />
+            <column-instance column='[Name]' derivation='None' name='[none:Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ProductName]' derivation='None' name='[none:ProductName:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SalesPersonID (SalesPerson.csv)]' derivation='None' name='[none:SalesPersonID (SalesPerson.csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1222727309796016128]' derivation='Sum' name='[sum:Calculation_1222727309796016128:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Name:nk]' member='&quot;Azure Kinect DK&quot;' />
+              <groupfilter function='member' level='[none:Name:nk]' member='&quot;Bing&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SalesPersonID (SalesPerson.csv):ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[sum:Calculation_1222727309796016128:qk]</rows>
+        <cols>([federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:ProductName:nk] / [federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SalesPersonID (SalesPerson.csv):ok])</cols>
+      </table>
+      <simple-id uuid='{4405086D-D294-46B4-8B2F-4D6B871A2C8A}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='Customer.csv+ (Multiple Connections)' name='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab' />
+      </datasources>
+      <datasource-dependencies datasource='federated.17k8geq0xg2vkd1fdnn0k1eiv8ab'>
+        <column caption='Business Entity ID' datatype='integer' name='[BusinessEntityID]' role='dimension' type='ordinal' />
+        <column datatype='integer' name='[SpecialOfferID (Promotions (1).csv)]' role='dimension' type='ordinal' />
+        <column-instance column='[BusinessEntityID]' derivation='None' name='[none:BusinessEntityID:ok]' pivot='key' type='ordinal' />
+        <column-instance column='[SpecialOfferID (Promotions (1).csv)]' derivation='None' name='[none:SpecialOfferID (Promotions (1).csv):ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='8' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='6' type='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='49000' id='5' name='Top Product Sales wise' w='41200' x='42000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='11' name='Sales by Customer Category' w='48100' x='35100' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='24500' id='14' name='Sales Person Commission' w='34300' x='800' y='74500'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='18' name='Sales by Month' w='41200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='24500' id='19' name='Product Performance' w='34300' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='7' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='27750' id='12' mode='radiolist' name='Sales by Customer Category' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]' type='filter' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='10750' id='13' name='Sales by Customer Category' pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Category:nk]' type='color' w='16000' x='83200' y='28750'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='44375' id='20' mode='radiolist' name='Product Performance' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' type='filter' w='16000' x='83200' y='39500'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='5750' id='21' name='Product Performance' pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]' type='color' w='16000' x='83200' y='83875'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1550' minheight='1550' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='22' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='23' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='18' is-fixed='true' name='Sales by Month' w='41200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='5' is-fixed='true' name='Top Product Sales wise' w='41200' x='42000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='44375' id='20' mode='dropdown' name='Product Performance' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' type='filter' w='16000' x='83200' y='39500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='188' h='24500' id='19' is-fixed='true' name='Product Performance' w='34300' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='5750' id='21' name='Product Performance' pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]' type='color' w='16000' x='83200' y='83875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='27750' id='12' mode='dropdown' name='Sales by Customer Category' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]' type='filter' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='11' is-fixed='true' name='Sales by Customer Category' w='48100' x='35100' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10750' id='13' name='Sales by Customer Category' pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Category:nk]' type='color' w='16000' x='83200' y='28750'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='188' h='24500' id='14' is-fixed='true' name='Sales Person Commission' w='34300' x='800' y='74500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{433C49F6-B76D-41F6-90E7-476AB82BBA02}' />
+    </dashboard>
+    <dashboard name='Story 1' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>MICROSOFT</run>
+            <run>Æ&#10;&#10;</run>
+            <run bold='true'>Sales Analysis</run>
+            <run>Æ&#10;&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='120' />
+        </style-rule>
+      </style>
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type='layout-flow' w='98426' x='787' y='830'>
+            <zone h='13693' id='3' type='title' w='98426' x='787' y='830' />
+            <zone fixed-size='79' h='8195' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='98426' x='787' y='14523' />
+            <zone h='76452' id='5' paired-zone-id='4' removable='false' type='flipboard' w='98426' x='787' y='22718'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='Market Analysis' captured-sheet='Dashboard 1' id='1' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{2877DB33-22E0-40F0-B575-849C2435E598}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='0.833333' source-height='30'>
+    <window class='worksheet' name='Sales vs Customers'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:CustomerID:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A586EDB1-4FDD-4013-9EB8-CF1A7FAD68B6}' />
+    </window>
+    <window class='worksheet' name='Top Product Sales wise'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Name:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SalesPersonID (SalesPerson.csv):ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{045F1DA9-B316-4ED5-96A3-7A3BD72F6CB3}' />
+    </window>
+    <window class='worksheet' name='Sales by Customer Category'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:BusinessEntityID:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:Category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BAA2CABB-421E-4F48-A111-90B8725FF190}' />
+    </window>
+    <window class='worksheet' name='Sales Person Commission'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[avg:CommissionPct:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{85B830AA-6D4D-4DEB-9FB6-F8139A4CB7DA}' />
+    </window>
+    <window class='worksheet' name='Product Performance'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:SpecialOfferID (Promotions (1).csv):ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[usr:Calculation_1222727309857378306:nk:2]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B6AB107C-7036-41F6-AB7E-625F1D413E22}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Product Performance' />
+        <viewpoint name='Sales Person Commission' />
+        <viewpoint name='Sales by Customer Category'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sales by Month'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top Product Sales wise' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{CA6F728B-7669-4B53-A7D9-82804540EBC0}' />
+    </window>
+    <window class='worksheet' name='Sales by Month'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.17k8geq0xg2vkd1fdnn0k1eiv8ab].[none:ProductCategory_ID___:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EEF2C6E8-DFA1-4683-8185-25C1EFB4BEC8}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Story 1'>
+      <viewpoints />
+      <active id='4' />
+      <simple-id uuid='{70D10CBF-9BE4-4817-B9F3-2C05BE93CB71}' />
+    </window>
+  </windows>
+</workbook>

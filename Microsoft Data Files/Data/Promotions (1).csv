@@ -1,0 +1,17 @@
+SpecialOfferID,Description,DiscountPct,Type,Category,MinQty,MaxQty
+1,No Discount,0,No Discount,No Discount,0,NULL
+2,Volume Discount 11 to 14,0.02,Volume Discount,Reseller,11,14
+3,Volume Discount 15 to 17,0.05,Volume Discount,Reseller,15,17
+4,Volume Discount 18 to 20,0.1,Volume Discount,Reseller,18,20
+5,Volume Discount 21 to 24,0.15,Volume Discount,Reseller,21,24
+6,Volume Discount over 25,0.2,Volume Discount,Reseller,25,NULL
+7, Clearance Sale,0.35,Discontinued Product,Reseller,0,NULL
+8,Summer Discount,0.1,Seasonal Discount,Reseller,0,NULL
+9,Overstock,0.3,Excess Inventory,Reseller,0,NULL
+10,Spring Sale,0.5,Excess Inventory,Customer,0,NULL
+11,First Time Discount,0.15,Seasonal Discount,Reseller,0,NULL
+12,Prime Day,0.35,Excess Inventory,Reseller,0,NULL
+13,Thanksgiving,0.15,New Product,Reseller,0,NULL
+14,October Fest,0.2,New Product,Reseller,0,NULL
+15,Half-Price Sale,0.5,Seasonal Discount,Customer,0,NULL
+16,End of season Clearance Sale,0.4,Discontinued Product,Reseller,0,NULL
