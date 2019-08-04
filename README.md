@@ -11,3 +11,5 @@ Google Colab Python Notebook Link(Assignment-2): https://colab.research.google.c
 
 Assignment 3 Claat Documentation Link
 https://codelabs-preview.appspot.com/?file_id=1wY8UR8XuHt3WcETcbduOJizr-iMI6TTRMkw5VbGeCs0#0
+
+Project Proposal: https://codelabs-preview.appspot.com/?file_id=1Y5TjiuPLYbZDSgD_cwhHWBarvp4KpWhpak7WqkkEs24#6
