@@ -1,5 +1,7 @@
 # info7374_dma_team6
 
+This is the repository for team 6 of Digital Marketing Analytics class by Prof. Srikanth. The contributors are Ira, Purvang and Ashu
+
 Claat Documentation Link : https://codelabs-preview.appspot.com/?file_id=1tPaGlVDtKhm4KyUnLcMRdSHaR2XzEMgEiHGpv-Xg2bE#0
 
 Tableau Public Link:

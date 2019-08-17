@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Final Project #6</title>
+</head>
+<body>
+    <style>
+    body{
+      background: lightblue;
+    }
+        
+    #main_div{
+      display: flex;
+      
+    }
+    #data_table{
+          padding-left: 52px;
+    }
+    title{
+      display: center;
+    }
+    table{
+      display: inline-block;
+    }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: gold;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: black;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+          background-color: goldenrod;
+        }
+    </style>
+    <ul>
+        <li><a href="/">CatKart Company</a></li>
+        <li><a href="/exploratory_analysis">Exploratory Data Analysis</a></li>
+        <li><a href="/business_loss">Business Loss</a></li>
+        <li><a href="/customer_analysis">Customer Analysis</a></li>
+        <li><a href="/customer_conversion">Customer Conversion</a></li>
+    </ul>
+
+    </br>
+    <div>
+    <b>Customer Lifetime Value: {{ clv }}</b>
+  </div>
+
+  <div id="main_div">
+
+
+     {% for table in tables %}
+          <div>
+            <div id="table_title"><b>{{titles[loop.index]}}</b></div> 
+            <div id="data_table">{{ table|safe }}</div> 
+          </div>
+          
+        {% endfor %}
+    <div>
+      {% for image in images %}
+          <!--<img src={{ image }} alt="Chart" height="42" width="42">-->
+          <img src="{{ url_for('static', filename= image) }}" alt="Chart" height="450" width="450">
+      {% endfor %}
+    </div>
+      
+
+    
+
+  </div>
+    
+
+    <form action="/business_loss" method="POST" name="filter_data">
+        <div>
+            <button class="button is-primary is-small">Calculate</button>
+        </div>
+    </form>
+</body>
+</html>
