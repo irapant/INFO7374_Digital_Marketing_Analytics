@@ -16,8 +16,8 @@ from statsmodels.tsa.arima_model import ARIMA
 
 db_name = "info7374dbassignment2"#-------------------------------------Redshift: Database Name for gaming data
 
-master_username = "root"#----------------------------------------Redshift: Admin Username
-master_password = "Info7374gap"#---------------------------------Redshift: Admin Password
+master_username = ""#----------------------------------------Redshift: Admin Username
+master_password = ""#---------------------------------Redshift: Admin Password
 
 
 hostname = "info7374clusterproject.cwtvmzfhaqaf.us-east-1.redshift.amazonaws.com" #----------------Redshift: Hostname for database
